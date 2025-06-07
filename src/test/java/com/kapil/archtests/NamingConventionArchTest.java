@@ -11,6 +11,6 @@ public class NamingConventionArchTest {
 
     @ArchTest
     ArchRule archRuleNamingConvention = classes().that().
-            resideInAPackage("com.kapil.constants").should().
+            resideInAPackage("..constants..").should().
             haveSimpleNameEndingWith("Constants");
 }
