@@ -31,3 +31,10 @@ bin/
 
 ### Intellij ###
 .idea/
+*.iml
+*.ipr
+*.iws
+target/
+
+
+
