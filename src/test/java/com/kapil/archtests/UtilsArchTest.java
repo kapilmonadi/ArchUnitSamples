@@ -9,7 +9,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;
 @AnalyzeClasses(packages = "com.kapil")
 public class UtilsArchTest {
     @ArchTest
-    ArchRule archRuleStaticMethodsInUtilClasses = methods().that().
+    ArchRule arch_rule_only_static_methods_in_util_classes = methods().that().
             areDeclaredInClassesThat().resideInAPackage("..utils..").
             should().beStatic();
 

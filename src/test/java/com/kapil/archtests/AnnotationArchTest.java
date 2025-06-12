@@ -11,7 +11,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 public class AnnotationArchTest {
 
     @ArchTest
-    private static final ArchRule classes_annotated_as_deprecated_should_not_be_used = noClasses()
+    private static final ArchRule arch_rule_classes_annotated_as_deprecated_should_not_be_used = noClasses()
             .should().dependOnClassesThat().areNotAnnotatedWith(Deprecated.class);
 
 }

@@ -8,7 +8,7 @@ import com.tngtech.archunit.library.Architectures;
 @AnalyzeClasses(packages = "com.kapil", importOptions = ImportOption.DoNotIncludeTests.class)
 public class LayeredArchTest {
 
-    private static final ArchRule layered_arch_rule_for_rest_api =
+    private static final ArchRule arch_rule_layered_strucoture_for_rest_api =
             Architectures.layeredArchitecture().consideringAllDependencies()
                     .layer("Controller").definedBy("..controller..")
                     .layer("Facade").definedBy("..facade..")
