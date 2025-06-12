@@ -5,13 +5,13 @@ import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
 
-import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
+import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
 @AnalyzeClasses(packages = "com.kapil", importOptions = ImportOption.DoNotIncludeTests.class)
-public class NamingConventionArchTest {
+public class AnnotationArchTest {
 
     @ArchTest
-    private static final ArchRule arch_rule_naming_convention = classes().that().
-            resideInAPackage("..constants..").should().
-            haveSimpleNameEndingWith("Constants");
+    private static final ArchRule classes_annotated_as_deprecated_should_not_be_used = noClasses()
+            .should().dependOnClassesThat().areNotAnnotatedWith(Deprecated.class);
+
 }

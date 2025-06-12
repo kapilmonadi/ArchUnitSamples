@@ -1,4 +1,23 @@
 package com.kapil.archtests;
 
+import com.tngtech.archunit.core.importer.ImportOption;
+import com.tngtech.archunit.junit.AnalyzeClasses;
+import com.tngtech.archunit.lang.ArchRule;
+import com.tngtech.archunit.library.Architectures;
+
+@AnalyzeClasses(packages = "com.kapil", importOptions = ImportOption.DoNotIncludeTests.class)
 public class LayeredArchTest {
+
+    private static final ArchRule layered_arch_rule_for_rest_api =
+            Architectures.layeredArchitecture().consideringAllDependencies()
+                    .layer("Controller").definedBy("..controller..")
+                    .layer("Facade").definedBy("..facade..")
+                    .layer("Service").definedBy("..service..")
+                    .layer("DAO").definedBy("..dao..")
+                    .layer("repository").definedBy("..repository..")
+                    .whereLayer("Controller").mayNotBeAccessedByAnyLayer()
+                    .whereLayer("Service").mayOnlyBeAccessedByLayers("Controller, Facade")
+                    .whereLayer("DAO").mayOnlyBeAccessedByLayers("Service")
+                    .whereLayer("Repository").mayOnlyBeAccessedByLayers("DAO", "Service");
+
 }
