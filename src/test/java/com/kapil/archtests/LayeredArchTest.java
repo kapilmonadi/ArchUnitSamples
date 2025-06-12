@@ -2,10 +2,12 @@ package com.kapil.archtests;
 
 import com.tngtech.archunit.core.importer.ImportOption;
 import com.tngtech.archunit.junit.AnalyzeClasses;
+import com.tngtech.archunit.junit.ArchTag;
 import com.tngtech.archunit.lang.ArchRule;
 import com.tngtech.archunit.library.Architectures;
 
 @AnalyzeClasses(packages = "com.kapil", importOptions = ImportOption.DoNotIncludeTests.class)
+@ArchTag("layered")
 public class LayeredArchTest {
 
     private static final ArchRule arch_rule_layered_strucoture_for_rest_api =
